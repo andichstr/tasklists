@@ -1,6 +1,6 @@
 <template>
 	<div id="addTaskDiv">
-		<input id='newTask' type='text' placeholder='New Task'/> <input class="btn btn-success" type='button' value='Add' @click='createTask()' />
+		<input id='newTask' type='text' placeholder='New Task'/> <input class="btn btn-success" type='button' value='Add' @click='createTask()' /> <input class="btn btn-secondary" type='button' value='Go back' @click='goBack()' />
 	</div>
 </template>
 
@@ -10,9 +10,6 @@ import { getAllTasks, createTask } from '../services/TaskService'
 
 export default {
 	name: 'CreateTask',
-	props: {
-		tasks: [],
-	},
 	methods: {
 		createTask() {
 			
@@ -27,6 +24,9 @@ export default {
 					console.log("No empty strings allowed");
 				}
 			})
+		},
+		goBack() {
+			this.$parent.switchInTasklist();
 		},
 	},
 }

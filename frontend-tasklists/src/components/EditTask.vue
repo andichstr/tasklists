@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<h3>Editing task: "{{ editing_task.name }}"</h3>
-		<input type="text" id="editing_task_id" :value="editing_task.name"/><br/>
-		<input class="btn btn-success" type="button" value="Save" @click="submitTask(editing_task)"/><input class="btn btn-secondary" type="button" value="Cancel" @click="cancelEditing()" />
+		<h3>Editing task: "{{ active_task.name }}"</h3>
+		<input type="text" id="active_task_id" :value="active_task.name"/><br/>
+		<input class="btn btn-success" type="button" value="Save" @click="submitTask(active_task)"/><input class="btn btn-secondary" type="button" value="Cancel" @click="cancelEditing()" />
 	</div>
 </template>
 
@@ -12,14 +12,10 @@ import { submitTask } from '../services/TaskService'
 
 export default {
 	name: 'EditTask',
-	props:{
-		editing_task: {},
-		editing: Boolean
-	},
 	methods: {
 		submitTask: function(task){
-			if (document.getElementById("editing_task_id").value != ""){
-				task.name = document.getElementById("editing_task_id").value;
+			if (document.getElementById("active_task_id").value != ""){
+				task.name = document.getElementById("active_task_id").value;
 				console.log(task);
 				
 				submitTask(task).then(response => {

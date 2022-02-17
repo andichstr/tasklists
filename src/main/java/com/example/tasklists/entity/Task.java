@@ -11,7 +11,7 @@ import java.util.Objects;
 @ToString
 @Entity
 public class Task {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

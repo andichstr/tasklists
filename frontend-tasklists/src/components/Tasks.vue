@@ -11,15 +11,10 @@
 <script>
 
 
-import { getAllTasks, updateChecked, deleteTask } from '../services/TaskService'
+import { getAllTasks, updateChecked, deleteTask } from '../services/TaskService.js'
 
 export default {
 	name: 'Tasks',
-	props:{
-		tasks: [],
-		editing_task: {},
-		editing: Boolean,
-	},
 	methods: {
 		getAllTasks: function() {
 			getAllTasks().then(response => {

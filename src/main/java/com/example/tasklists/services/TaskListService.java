@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.tasklists.entity.Task;
 import com.example.tasklists.entity.TaskList;
 import com.example.tasklists.repository.TaskListRepository;
 
@@ -18,5 +19,13 @@ public class TaskListService {
 
 	public List<TaskList> findAll(){
 		return repository.findAll();
+	}
+	
+	public TaskList save(TaskList tasklist) {
+		return repository.save(tasklist);
+	}
+	
+	public void delete(TaskList tasklist) {
+		repository.delete(tasklist);
 	}
 }
